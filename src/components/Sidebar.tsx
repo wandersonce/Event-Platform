@@ -8,12 +8,12 @@ export default function Sidebar() {
       </span>
 
       <div className='flex flex-col gap-8'>
-        <Lesson />
-        <Lesson />
-        <Lesson />
-        <Lesson />
-        <Lesson />
-        <Lesson />
+        <Lesson 
+          title="Class 1"
+          slug="class-1"
+          availableAt={new Date()}
+          type="class"
+        />
       </div>
     </aside>
   )
