@@ -1,4 +1,4 @@
-import { DiscordLogo, Lightning } from "phosphor-react";
+import { CaretRight, DiscordLogo, FileArrowDown, Lightning } from "phosphor-react";
 
 export default function Player() {
   return (
@@ -43,8 +43,41 @@ export default function Player() {
             </a>
           </div>
         </div>
-        <div>
 
+        <div className="gap-8 mt-20 grid grid-cols-2">
+          <a href="" className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors">
+            <div className="bg-green-700 h-full p-6 flex items-center">
+              <FileArrowDown  size={40} />
+            </div>
+            <div className="py-6 leading-relaxed">
+              <strong className="text-2xl">
+                Extra Content 
+              </strong>
+              <p className="text-sm text-gray-200 mt-2">
+                Access all extra content for speed up your development!
+              </p>
+            </div>
+            <div className="h-full p-6 flex items-center">
+              <CaretRight />
+            </div>
+          </a>
+
+          <a href="" className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors">
+            <div className="bg-green-700 h-full p-6 flex items-center">
+              <FileArrowDown  size={40} />
+            </div>
+            <div className="py-6 leading-relaxed">
+              <strong className="text-2xl">
+                Exclusive Wallpapers
+              </strong>
+              <p className="text-sm text-gray-200 mt-2">
+                Download exclusive wallpapers from this course!
+              </p>
+            </div>
+            <div className="h-full p-6 flex items-center">
+              <CaretRight />
+            </div>
+          </a>
         </div>
       </div>
     </div>
