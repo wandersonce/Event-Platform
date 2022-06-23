@@ -10,6 +10,7 @@ const GET_LESSON_BY_SLUG = gql`
       title
       id
       description
+      videoId
       teacher {
         name
         bio
@@ -42,6 +43,7 @@ export default function PlayerComponent(props: VideoProps) {
       slug: props.lessonSlug
     }
   })
+  console.log(data)
 
   if(!data){
     return (
