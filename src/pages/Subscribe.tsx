@@ -1,4 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
+import {useNavigate} from 'react-router-dom';
 import { useState, FormEvent } from "react";
 import { Logo } from "../components/Logo";
 
@@ -11,20 +12,24 @@ const CREATE_SUBSCRIBE_MUTATION = gql`
 `;
 
 export default function Subscribe() {
+  const navigate = useNavigate();
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
-  const [createSubscriber] = useMutation(CREATE_SUBSCRIBE_MUTATION);
+  const [createSubscriber, {loading}] = useMutation(CREATE_SUBSCRIBE_MUTATION);
 
-  function handleSubscribe(event:FormEvent){
+  async function handleSubscribe(event:FormEvent){
     event.preventDefault();
 
-    createSubscriber({
+    await createSubscriber({
       variables:{
         name,
         email
       }
     })
+
+    navigate('/event');
   }
 
   return (
@@ -59,7 +64,11 @@ export default function Subscribe() {
             onChange={event => setEmail(event.target.value)}
           />
 
-          <button type="submit" className="mt-4 bg-green-500 uppercase py-4 rounded font-bold text-small hover:bg-green-700 transition-colors">
+          <button 
+          type="submit" 
+          className="mt-4 bg-green-500 uppercase py-4 rounded font-bold text-small hover:bg-green-700 transition-colors disabled:opacity-50"
+          disabled={loading}
+          >
             Hold my Spot!
           </button>
         </form>
